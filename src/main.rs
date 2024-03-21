@@ -12,8 +12,8 @@ use crossterm::{
 
 
 struct World{
-    player_c = u16,
-    player_l = u16,
+    player_c : u16,
+    player_l : u16,
 
 }
 
@@ -34,10 +34,10 @@ fn main() -> std::io::Result<()> {
             player_c : maxc / 2,
             player_l : maxl - 1,
 
-        }
+        };
         loop{
              draw(&sc , &world);
-        }
+        };
     
     Ok(())
 }
