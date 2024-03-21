@@ -1,0 +1,116 @@
+   Compiling riverride v0.1.0 (/root/proj/riverride)
+error: expected `;`, found keyword `match`
+  --> src/main.rs:49:38
+   |
+49 |             let key = read().unwrap()
+   |                                      ^ help: add `;` here
+50 |             match key {
+   |             ----- unexpected token
+
+error: expected pattern, found `=>`
+  --> src/main.rs:54:31
+   |
+54 | ...                   - => {}
+   |                         ^^ expected pattern
+
+error[E0252]: the name `poll` is defined multiple times
+  --> src/main.rs:16:17
+   |
+14 | use crossterm::event::{poll, read, Event};
+   |                        ---- previous import of the value `poll` here
+15 | use crossterm::event::KeyCode;
+16 | use crossterm::{event::poll};
+   | ----------------^^^^^^^^^^^--
+   | |               |
+   | |               `poll` reimported here
+   | help: remove unnecessary import
+   |
+   = note: `poll` must be defined only once in the value namespace of this module
+
+error[E0252]: the name `read` is defined multiple times
+  --> src/main.rs:17:5
+   |
+14 | use crossterm::event::{poll, read, Event};
+   |                              ---- previous import of the value `read` here
+...
+17 | use crossterm::event::read;
+   |     ^^^^^^^^^^^^^^^^^^^^^^ `read` reimported here
+   |
+   = note: `read` must be defined only once in the value namespace of this module
+
+error[E0252]: the name `Event` is defined multiple times
+  --> src/main.rs:18:5
+   |
+14 | use crossterm::event::{poll, read, Event};
+   |                                    ----- previous import of the type `Event` here
+...
+18 | use crossterm::event::Event;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^ `Event` reimported here
+   |
+   = note: `Event` must be defined only once in the type namespace of this module
+
+error[E0425]: cannot find function `enable_raw_mode` in this scope
+  --> src/main.rs:36:9
+   |
+36 |         enable_raw_mode();
+   |         ^^^^^^^^^^^^^^^ not found in this scope
+   |
+help: consider importing this function
+   |
+1  + use crossterm::terminal::enable_raw_mode;
+   |
+
+error[E0425]: cannot find function `disable_raw_mode` in this scope
+  --> src/main.rs:70:5
+   |
+70 |     disable_raw_mode();
+   |     ^^^^^^^^^^^^^^^^ not found in this scope
+   |
+help: consider importing this function
+   |
+1  + use crossterm::terminal::disable_raw_mode;
+   |
+
+warning: unused import: `io`
+ --> src/main.rs:2:27
+  |
+2 | use std::{time::Duration, io};
+  |                           ^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused imports: `Color`, `ExecutableCommand`, `ResetColor`, `SetBackgroundColor`, `SetForegroundColor`, `event`, `execute`
+ --> src/main.rs:4:5
+  |
+4 |     execute,
+  |     ^^^^^^^
+5 |     style::{Color, Print, ResetColor, SetBackgroundColor, SetForegroundColor},
+  |             ^^^^^         ^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^
+6 |     ExecutableCommand,
+  |     ^^^^^^^^^^^^^^^^^
+7 |     QueueableCommand,
+8 |     event,
+  |     ^^^^^
+
+warning: unused import: `event::poll`
+  --> src/main.rs:16:17
+   |
+16 | use crossterm::{event::poll};
+   |                 ^^^^^^^^^^^
+
+warning: unused import: `crossterm::event::read`
+  --> src/main.rs:17:5
+   |
+17 | use crossterm::event::read;
+   |     ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `crossterm::event::Event`
+  --> src/main.rs:18:5
+   |
+18 | use crossterm::event::Event;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+
+Some errors have detailed explanations: E0252, E0425.
+For more information about an error, try `rustc --explain E0252`.
+warning: `riverride` (bin "riverride") generated 5 warnings
+error: could not compile `riverride` (bin "riverride") due to 7 previous errors; 5 warnings emitted
